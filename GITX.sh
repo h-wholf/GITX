@@ -2,7 +2,7 @@
 
 selector(){
   
-  seleccion=$(termux-dialog checkbox -v init,commit,status,add,salir -t 'GITX TERMUX IDEV'|jq .text|tr -d '"[]"')
+  seleccion=$(termux-dialog checkbox -v init,commit,status,add,log,salir -t 'GITX TERMUX IDEV'|jq .text|tr -d '"[]"')
   $seleccion
   
 }
@@ -34,6 +34,11 @@ salir(){
   
   exit
   
+}
+log(){
+  info=$(git log)
+  
+  termux-dialog confirm -i $info -t 'GITX  - add TERMUX IDEV'|jq .text|tr -d '"[]"'
 }
 core(){
   selector
