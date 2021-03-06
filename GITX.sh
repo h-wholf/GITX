@@ -26,7 +26,7 @@ add(){
 }
 
 commit(){
-  info=$(termux-dialog text -i 'DESCRIPCION DEL COMMIT' -m -t 'GITX COMMIT TERMUX IDEV' )
+  info=$(termux-dialog text -i 'DESCRIPCION DEL COMMIT' -m -t 'GITX COMMIT TERMUX IDEV'|jq .text|tr -d '"[]"' )
   git commit -m $info
   
 }
