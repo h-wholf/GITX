@@ -2,7 +2,7 @@
 
 selector(){
   
-  seleccion=$(termux-dialog checkbox -v init,commit,status,add,log,salir -t 'GITX TERMUX IDEV'|jq .text|tr -d '"[]"')
+  seleccion=$(termux-dialog checkbox -v init,commit,status,add,log,salir,push_origin -t 'GITX TERMUX IDEV'|jq .text|tr -d '"[]"')
   $seleccion
   
 }
@@ -35,6 +35,14 @@ salir(){
   exit
   
 }
+
+push_origin(){
+  
+  git push origin
+  termux-dialog confirm -i "se subió a github" -t 'GITX  - add TERMUX IDEV'|jq .text|tr -d '"[]"'
+}
+
+
 log(){
   info=$(git log)
   
