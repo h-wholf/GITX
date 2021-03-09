@@ -46,10 +46,16 @@ add_origin(){
   user=$(termux-dialog text -i 'NOMBRE DE USUARIO DE GITHUB' -m -t 'GITX COMMIT TERMUX IDEV'|jq .text|tr -d '"[]"' )
   proyecto=$(termux-dialog text -i 'NOMBRE DEl REPOSITORIO' -m -t 'GITX COMMIT TERMUX IDEV'|jq .text|tr -d '"[]"' )
   g='.git'
-  git branch -M main
+  
+  
   git remote add origin https://github.com/$user/$proyecto$g
   
   
+}
+
+upstream(){
+  termux-dialog confirm -i "ACONTINUACION SE ESTABLE SERÁ A GITHUB COMO PRINCIPAL" -t 'GITX  - add TERMUX IDEV'|jq .text|tr -d '"[]"'
+  it push --set-upstream origin main
 }
 
 log(){
