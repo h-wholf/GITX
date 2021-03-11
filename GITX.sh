@@ -2,7 +2,7 @@
 
 selector(){
   
-  seleccion=$(termux-dialog checkbox -v init,add_origin,commit,status,add,log,salir,push_origin -t 'GITX TERMUX IDEV'|jq .text|tr -d '"[]"')
+  seleccion=$(termux-dialog checkbox -v init,add_origin,commit,status,add,log,salir,push_origin,upstream -t 'GITX TERMUX IDEV'|jq .text|tr -d '"[]"')
   $seleccion
   
 }
@@ -55,7 +55,7 @@ add_origin(){
 
 upstream(){
   termux-dialog confirm -i "ACONTINUACION SE ESTABLE SERÁ A GITHUB COMO PRINCIPAL" -t 'GITX  - add TERMUX IDEV'|jq .text|tr -d '"[]"'
-  it push --set-upstream origin main
+  git push --set-upstream origin main
 }
 
 log(){
