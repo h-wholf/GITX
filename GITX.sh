@@ -55,7 +55,7 @@ add_origin(){
 
 upstream(){
   termux-dialog confirm -i "ACONTINUACION SE ESTABLE SERÁ A GITHUB COMO PRINCIPAL" -t 'GITX  - add TERMUX IDEV'|jq .text|tr -d '"[]"'
-  git push --set-upstream origin main
+  git push --set-upstream origin master
 }
 
 log(){
