@@ -47,7 +47,7 @@ add_origin(){
   
   
   
-  echo git remote add origin $url
+  git remote add origin $url
   
   
 }
